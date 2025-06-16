@@ -74,7 +74,7 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::with('category', 'user')->findOrFail($id);
-        return view('admin.edit', compact('post'));
+        return view('admin.post-edit', compact('post'));
     }
 
     /**

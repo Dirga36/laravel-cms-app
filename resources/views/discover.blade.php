@@ -10,7 +10,7 @@
             <div class="space-y-5">
                 @foreach ($posts as $post)
                     <a href={{ route('posts.show', $post->id) }}
-                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow-xs hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                         @if (Auth::check() && Auth::user()->id == $post->user_id)
                             <p class="italic text-gray-500">You - {{ $post->created_at->diffForHumans() }}</p>
                         @else

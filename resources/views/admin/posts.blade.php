@@ -6,7 +6,7 @@
     </x-slot>
 
     <section class="p-3 sm:p-5">
-        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+        <div class="mx-auto max-w-(--breakpoint-xl) px-4 lg:px-12">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -21,12 +21,12 @@
                     <tbody>
                         @foreach ($posts as $post)
                             <tr
-                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                                class="odd:bg-white dark:odd:bg-gray-900 even:bg-gray-50 dark:even:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $post->title }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <div class="w-20 h-14 overflow-hidden rounded">
+                                    <div class="w-20 h-14 overflow-hidden rounded-sm">
                                         @if ($post->thumbnail)
                                             <img src="{{ asset('thumbnails/' . $post->thumbnail . '.jpg') }}"
                                                 alt="{{ $post->title }}" class="w-full h-full object-cover">
@@ -45,7 +45,7 @@
                                     <div class="relative inline-block text-left">
                                         <button id="{{ $dropdownId }}-button"
                                             data-dropdown-toggle="{{ $dropdownId }}"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                            class="bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                             type="button" aria-expanded="false" aria-controls="{{ $dropdownId }}">
                                             Actions
                                             <svg class="w-2.5 h-2.5 ms-2" xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@
 
                                         <!-- Dropdown menu -->
                                         <div id="{{ $dropdownId }}"
-                                            class="z-10 hidden absolute right-0 mt-2 bg-white divide-y divide-gray-100 border border-slate-400 rounded-lg shadow w-44 dark:bg-gray-700">
+                                            class="z-10 hidden absolute right-0 mt-2 bg-white divide-y divide-gray-100 border border-slate-400 rounded-lg shadow-sm w-44 dark:bg-gray-700">
                                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                 aria-labelledby="{{ $dropdownId }}-button">
                                                 <li>
