@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $posts = Post::with('category', 'user')->latest()->get();
 
-        return View('admin.posts', compact('posts'));
+        return view('admin.posts', compact('posts'));
     }
 
     /**
@@ -25,7 +25,7 @@ class PostController extends Controller
     {
         $posts = Post::with('category', 'user')->latest()->get();
 
-        return View('discover', compact('posts'));
+        return view('discover', compact('posts'));
     }
 
     /**
@@ -73,7 +73,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::with('category', 'user')->findOrFail($id);
+        return view('admin.edit', compact('post'));
     }
 
     /**
