@@ -7,6 +7,15 @@
 
     <section class="p-3 sm:p-5">
         <div class="mx-auto max-w-(--breakpoint-xl) px-4 lg:px-12">
+            <div class="flex w-full justify-end">
+                <a href={{ route('posts.create') }}>
+                    <button type="button"
+                        class="shadow-md text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    Add ➕
+                    </button>
+                </a>
+            </div>
+
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -44,15 +53,9 @@
                                     @php $dropdownId = 'dropdown-' . $post->id; @endphp
                                     <div class="relative inline-block text-left">
                                         <button id="{{ $dropdownId }}-button"
-                                            data-dropdown-toggle="{{ $dropdownId }}"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                            type="button" aria-expanded="false" aria-controls="{{ $dropdownId }}">
-                                            Actions
-                                            <svg class="w-2.5 h-2.5 ms-2" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 10 6">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2" d="M1 1l4 4 4-4" />
-                                            </svg>
+                                            data-dropdown-toggle="{{ $dropdownId }}" type="button"
+                                            aria-expanded="false" aria-controls="{{ $dropdownId }}">
+                                            ◽◽◽
                                         </button>
 
                                         <!-- Dropdown menu -->
@@ -61,7 +64,7 @@
                                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                 aria-labelledby="{{ $dropdownId }}-button">
                                                 <li>
-                                                    <a href="{{ route('posts.edit', $post->id) }}"
+                                                    <a href={{ route('posts.edit', $post->id) }}
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                                 </li>
                                                 <li>
@@ -76,7 +79,7 @@
                                                     </form>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('posts.show', $post->id) }}"
+                                                    <a href={{ route('posts.show', $post->id) }}
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">View</a>
                                                 </li>
                                             </ul>

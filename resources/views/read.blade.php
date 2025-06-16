@@ -6,19 +6,15 @@
             <div class="space-y-5">
                 <div
                     class="block p-6 bg-white border border-gray-200 rounded-lg shadow-xs dark:bg-gray-800 dark:border-gray-700">
-                    <a href={{ route('discover') }}>
-                        <button type="button"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <svg class="w-6 h-6 text-white dark:text-gray-800" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 12h14M5 12l4-4m-4 4 4 4" />
-                            </svg>
-                            Back
-                        </button>
+                    <a data-tooltip-target="tooltip-default" href="{{ route('discover') }}"
+                        class="inline-flex items-center text-blue-600 hover:underline text-sm font-medium">
+                        👈 Back
                     </a>
-
+                    <div id="tooltip-default" role="tooltip"
+                        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Back to discover
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {{ $post->title }}
                     </h5>
