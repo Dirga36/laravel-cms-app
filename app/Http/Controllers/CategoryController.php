@@ -12,7 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::latest()->get();
+
+        return view('admin.category_CRUD.categories', compact('categories'));
     }
 
     /**
@@ -20,7 +22,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.category_CRUD.create-category', compact('categories'));
     }
 
     /**
@@ -29,7 +33,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:50',
+            'title' => 'required|string|max:255',
         ]);
 
         Category::create($validated);
@@ -50,7 +54,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('admin.category_CRUD.edit-category', compact('category'));
     }
 
     /**
@@ -59,7 +64,7 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:50',
         ]);
 
         $category = Category::findOrFail($id);

@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,7 +22,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('posts', PostController::class);
-    Route::get('discover', [PostController::class, 'discover'])->name('discover');
+    Route::resource('categories', CategoryController::class);
 });
+
+Route::get('discover', [PostController::class, 'discover'])->name('discover');
 
 require __DIR__ . '/auth.php';

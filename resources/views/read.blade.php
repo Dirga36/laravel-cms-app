@@ -8,7 +8,7 @@
                     class="block p-6 bg-white border border-gray-200 rounded-lg shadow-xs dark:bg-gray-800 dark:border-gray-700">
                     <a data-tooltip-target="tooltip-default" href="{{ route('discover') }}"
                         class="inline-flex items-center text-blue-600 hover:underline text-sm font-medium">
-                        👈 Back
+                        🡨 Back
                     </a>
                     <div id="tooltip-default" role="tooltip"
                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">

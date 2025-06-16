@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::with('category', 'user')->latest()->get();
 
-        return view('admin.posts', compact('posts'));
+        return view('admin.post_CRUD.posts', compact('posts'));
     }
 
     /**
@@ -36,7 +36,7 @@ class PostController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.create-post', compact('categories'));
+        return view('admin.post_CRUD.create-post', compact('categories'));
     }
 
     /**
@@ -78,7 +78,7 @@ class PostController extends Controller
     {
         $post = Post::with('category', 'user')->findOrFail($id);
         $categories = Category::all();
-        return view('admin.post-edit', compact('post', 'categories'));
+        return view('admin.post_CRUD.edit-post', compact('post', 'categories'));
     }
 
     /**
