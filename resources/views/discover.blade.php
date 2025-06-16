@@ -1,10 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.focus')
 
+@section('content')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="space-y-5">
@@ -24,8 +20,8 @@
                             {{ Str::limit($post->content, 150) }}</p>
                         @if ($post->thumbnail)
                             <div class="basis-1/4 p-0 content-center justify-center">
-                                <img src="{{ asset('thumbnails/' . $post->thumbnail . '.jpg') }}"
-                                    alt="{{ $post->title }}" class="rounded-md object-cover w-full h-fit">
+                                <img src="{{ asset('thumbnails/' . $post->thumbnail . '.jpg') }}" alt="{{ $post->title }}"
+                                    class="rounded-md object-cover w-full h-fit">
                             </div>
                         @endif
                         {{--
@@ -44,4 +40,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
