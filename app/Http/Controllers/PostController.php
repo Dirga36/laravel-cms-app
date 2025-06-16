@@ -15,7 +15,17 @@ class PostController extends Controller
     {
         $posts = Post::with('category', 'user')->latest()->get();
 
-        return View('posts', compact('posts'));
+        return View('admin.posts', compact('posts'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function discover()
+    {
+        $posts = Post::with('category', 'user')->latest()->get();
+
+        return View('discover', compact('posts'));
     }
 
     /**
@@ -55,7 +65,7 @@ class PostController extends Controller
     public function show(string $id)
     {
         $post = Post::with('category', 'user')->findOrFail($id);
-        return view('show-post', compact('post'));
+        return view('read', compact('post'));
     }
 
     /**
