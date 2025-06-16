@@ -45,7 +45,7 @@
                                     <div class="relative inline-block text-left">
                                         <button id="{{ $dropdownId }}-button"
                                             data-dropdown-toggle="{{ $dropdownId }}"
-                                            class="bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                             type="button" aria-expanded="false" aria-controls="{{ $dropdownId }}">
                                             Actions
                                             <svg class="w-2.5 h-2.5 ms-2" xmlns="http://www.w3.org/2000/svg"

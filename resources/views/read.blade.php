@@ -6,7 +6,7 @@
             <div class="space-y-5">
                 <div
                     class="block p-6 bg-white border border-gray-200 rounded-lg shadow-xs dark:bg-gray-800 dark:border-gray-700">
-                    <a href={{ route('posts.index') }}>
+                    <a href={{ route('discover') }}>
                         <button type="button"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg class="w-6 h-6 text-white dark:text-gray-800" aria-hidden="true"
