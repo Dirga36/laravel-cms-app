@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -69,6 +68,7 @@ class PostController extends Controller
     public function show(string $id)
     {
         $post = Post::with('category', 'user')->findOrFail($id);
+
         return view('read', compact('post'));
     }
 
@@ -79,6 +79,7 @@ class PostController extends Controller
     {
         $post = Post::with('category', 'user')->findOrFail($id);
         $categories = Category::where('user_id', Auth::id())->get();
+
         return view('admin.post_CRUD.edit-post', compact('post', 'categories'));
     }
 

@@ -31,7 +31,7 @@
                         <tbody>
                             @foreach ($posts as $post)
                                 <tr
-                                    class="odd:bg-white dark:odd:bg-gray-900 even:bg-gray-50 dark:even:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                                    class="odd:bg-gray-500 even:bg-gray-400 border-b border-gray-200 dark:odd:bg-gray-900 dark:even:bg-gray-800 dark:border-gray-700">
                                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $post->title }}
                                     </td>
@@ -42,43 +42,38 @@
                                                     alt="{{ $post->title }}" class="w-full h-full object-cover">
                                             @else
                                                 <div
-                                                    class="w-full h-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs">
+                                                    class="w-full h-full flex items-center justify-center text-xs bg-gray-200 text-gray-500 dark:bg-gray-700 dark:text-gray-300">
                                                     No image
                                                 </div>
                                             @endif
-                                            {{-- 
-                                        ----------------Via stoarge--------------:
-
-                                        @if ($post->thumbnail)
-                                            <img src="{{ asset('storage/' . $post->thumbnail) }}"
-                                                alt="{{ $post->title }}" class="w-full h-full object-cover">
-                                        @else
-                                            <div
-                                                class="w-full h-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs">
-                                                No image
-                                            </div>
-                                        @endif --}}
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4">{{ $post->category->name }}</td>
-                                    <td class="px-6 py-4">{{ $post->user->name }}</td>
+                                    <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                        {{ $post->category->name }}
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                        {{ $post->user->name }}
+                                    </td>
                                     <td class="px-6 py-4">
                                         @php $dropdownId = 'dropdown-' . $post->id; @endphp
                                         <div class="relative inline-block text-left">
                                             <button id="{{ $dropdownId }}-button"
                                                 data-dropdown-toggle="{{ $dropdownId }}" type="button"
-                                                aria-expanded="false" aria-controls="{{ $dropdownId }}">
+                                                aria-expanded="false" aria-controls="{{ $dropdownId }}"
+                                                class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
                                                 ◽◽◽
                                             </button>
 
                                             <!-- Dropdown menu -->
                                             <div id="{{ $dropdownId }}"
-                                                class="z-10 hidden absolute right-0 mt-2 bg-white divide-y divide-gray-100 border border-slate-400 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                                                class="z-10 hidden absolute right-0 mt-2 w-44 rounded-lg border border-slate-400 shadow-sm bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600">
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                     aria-labelledby="{{ $dropdownId }}-button">
                                                     <li>
-                                                        <a href={{ route('posts.edit', $post->id) }}
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                                        <a href="{{ route('posts.edit', $post->id) }}"
+                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                            Edit
+                                                        </a>
                                                     </li>
                                                     <li>
                                                         <form method="POST"
@@ -86,14 +81,16 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
-                                                                class="w-full text-left px-4 py-2 hover:bg-red-100 dark:hover:bg-red-600 dark:hover:text-white text-red-600">
+                                                                class="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100 dark:text-red-400 dark:hover:bg-red-600 dark:hover:text-white">
                                                                 Delete
                                                             </button>
                                                         </form>
                                                     </li>
                                                     <li>
-                                                        <a href={{ route('posts.show', $post->id) }}
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">View</a>
+                                                        <a href="{{ route('posts.show', $post->id) }}"
+                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                            View
+                                                        </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -104,7 +101,7 @@
                         </tbody>
                     </table>
                 @else
-                    <x-no-item/>
+                    <x-no-item />
                 @endif
             </div>
         </div>

@@ -47,14 +47,10 @@
 
             {{-- Features --}}
             <section class="py-16 bg-white dark:bg-gray-800">
-                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2` gap-8 px-6">
                     <div class="text-center">
                         <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Editor Visual</h3>
                         <p class="text-gray-600 dark:text-gray-300">Quill editor berfitur lengkap dan responsif.</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Thumbnail Preview</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Upload & lihat pratinjau langsung dalam satu klik.</p>
                     </div>
                     <div class="text-center">
                         <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Kategori & Tag</h3>
