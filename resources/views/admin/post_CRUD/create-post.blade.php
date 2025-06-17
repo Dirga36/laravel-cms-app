@@ -6,19 +6,6 @@
             <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                {{  }}
-                @if (session('success'))
-                    <div class="bg-green-100 text-green-700 p-2 rounded">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                @if (session('error'))
-                    <div class="bg-red-100 text-red-700 p-2 rounded">
-                        {{ session('error') }}
-                    </div>
-                @endif
-
                 <!-- Header -->
                 <div class="flex justify-between items-center mb-4">
                     <a data-tooltip-target="tooltip-default" href="{{ route('posts.index') }}"
@@ -44,8 +31,7 @@
                     <div>
                         <label for="title"
                             class="block text-sm font-medium text-gray-700 dark:text-gray-200">Title</label>
-                        <input type="text" name="title" id="title" required
-                            value="{{ old('title') }}"
+                        <input type="text" name="title" id="title" required value="{{ old('title') }}"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm" />
                         @error('title')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -60,7 +46,11 @@
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm">
                             <option selected disabled>Select category</option>
                             @foreach ($categories as $category)
-                                <option value={{ $category->name }}>{{ $category->name }}</option>
+                                <option selected disabled>Select category</option>
+                                <option value="{{ $category->id }}"
+                                    {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                         @error('category_id')
@@ -83,8 +73,8 @@
                     <div>
                         <label for="content"
                             class="block text-sm font-medium text-gray-700 dark:text-gray-200">Content</label>
-                        <textarea name="content" id="content" rows="5"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm">{{ old('content') }}</textarea>
+                        <div id="quill-editor" class="mt-1 bg-white dark:bg-gray-700" style="min-height:200px;"></div>
+                        <textarea name="content" id="quill-editor-area" class="hidden">{{ old('content') }}</textarea>
                         @error('content')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror

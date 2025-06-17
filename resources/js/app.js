@@ -1,11 +1,20 @@
 import './bootstrap';
-//import Quill from 'quill';
-//import "quill/dist/quill.core.css";
-
+import 'quill/dist/quill.snow.css';
+import Quill from 'quill';
 import Alpine from 'alpinejs';
 
-//const container = document.getElementById('editor');
-//const quill = new Quill(container);
 window.Alpine = Alpine;
-
 Alpine.start();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const editor = new Quill('#quill-editor', { theme: 'snow' });
+  const textarea = document.getElementById('quill-editor-area');
+
+  if (textarea.value.trim()) {
+    editor.clipboard.dangerouslyPasteHTML(textarea.value);
+  }
+
+  editor.on('text-change', () => {
+    textarea.value = editor.root.innerHTML;
+  });
+});

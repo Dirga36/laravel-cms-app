@@ -7,7 +7,7 @@
         <header class="bg-white dark:bg-gray-800 shadow">
             <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
                 <a href={{ route('welcome') }}>
-                    <h1 class="text-2xl font-bold text-gray-800 dark:text-white">📁 CMS App</h1>
+                    <x-application-logo />
                 </a>
                 <nav class="space-x-4">
                     @auth
@@ -44,7 +44,7 @@
                                     alt="{{ $post->title }}" class="rounded-md object-cover w-full h-fit">
                             </div>
                         @endif
-                                        {{-- 
+                        {{-- 
                                         ----------------Via stoarge--------------:
 
                                         @if ($post->thumbnail)

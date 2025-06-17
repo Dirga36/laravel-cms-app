@@ -34,7 +34,7 @@
                                 class="rounded-md object-cover w-full h-fit">
                         </div>
                     @endif
-                                        {{-- 
+                    {{-- 
                                         ----------------Via stoarge--------------:
 
                                         @if ($post->thumbnail)
@@ -48,7 +48,7 @@
                                         @endif --}}
 
                     <p class="font-normal text-gray-700 dark:text-gray-400 mb-5">
-                        {{ $post->content }}
+                        {!! $post->content !!}
                     </p>
                 </div>
             </div>

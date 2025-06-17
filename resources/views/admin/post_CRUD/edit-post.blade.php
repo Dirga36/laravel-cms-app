@@ -43,7 +43,7 @@
 
                     <!-- Title -->
                     <div>
-                        <label for="title" value={{ $post->content }}
+                        <label for="title" value={{ old('title') }}
                             class="block text-sm font-medium text-gray-700 dark:text-gray-200">Title</label>
                         <input type="text" name="title" id="title" required value="{{ $post->title }}"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm" />
@@ -86,11 +86,8 @@
                     <div>
                         <label for="content"
                             class="block text-sm font-medium text-gray-700 dark:text-gray-200">Content</label>
-                        <textarea
-                            name="content"
-                            id="content"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white
-                            sm:text-sm">{{ $post->content }}</textarea>
+                        <div id="quill-editor" class="mt-1 bg-white dark:bg-gray-700" style="min-height:200px;"></div>
+                        <textarea name="content" id="quill-editor-area" class="hidden">{{ $post->content }}</textarea>
                         @error('content')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
