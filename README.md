@@ -14,7 +14,7 @@ composer install
 - 1. buat
 
 ```powershell
-salin .env.example .env
+copy .env.example .env
 ```
 
 - 2. konfigurasikan basis data (_database dan nama database_)
