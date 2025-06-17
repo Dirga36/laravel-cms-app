@@ -3,7 +3,7 @@
 @section('content')
     <div class="py-10 bg-gray-50 dark:bg-gray-900 min-h-screen">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <form action={{ route('categories.create') }} method="POST" enctype="multipart/form-data">
+            <form action={{ route('categories.store') }} method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Header -->

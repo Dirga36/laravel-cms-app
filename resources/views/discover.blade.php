@@ -44,17 +44,18 @@
                                     alt="{{ $post->title }}" class="rounded-md object-cover w-full h-fit">
                             </div>
                         @endif
-                        {{--
-                            via storage:
+                                        {{-- 
+                                        ----------------Via stoarge--------------:
 
-                            @if ($post->image)
-                            <div class="basis-1/4 p-0 content-center justify-center">
-                                <img src="{{ asset('storage/' . $post->image) }}"
-                                     alt="{{ $post->title }}"
-                                    class="object-cover w-full h-fit border border-slate-700 dark:border-slate-300">
-                            </div>
-                            @endif 
-                        --}}
+                                        @if ($post->thumbnail)
+                                            <img src="{{ asset('storage/' . $post->thumbnail) }}"
+                                                alt="{{ $post->title }}" class="w-full h-full object-cover">
+                                        @else
+                                            <div
+                                                class="w-full h-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs">
+                                                No image
+                                            </div>
+                                        @endif --}}
                     </a>
                 @endforeach
             </div>

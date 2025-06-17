@@ -34,10 +34,18 @@
                                 class="rounded-md object-cover w-full h-fit">
                         </div>
                     @endif
-                    {{--
-                        via storage:
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="object-cover w-full h-fit border border-slate-700 dark:border-slate-300">
-                        --}}
+                                        {{-- 
+                                        ----------------Via stoarge--------------:
+
+                                        @if ($post->thumbnail)
+                                            <img src="{{ asset('storage/' . $post->thumbnail) }}"
+                                                alt="{{ $post->title }}" class="w-full h-full object-cover">
+                                        @else
+                                            <div
+                                                class="w-full h-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs">
+                                                No image
+                                            </div>
+                                        @endif --}}
 
                     <p class="font-normal text-gray-700 dark:text-gray-400 mb-5">
                         {{ $post->content }}

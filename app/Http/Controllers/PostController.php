@@ -45,7 +45,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:50',
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -87,7 +87,7 @@ class PostController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:50',
             'content' => 'nullable|string',
             'category_id' => 'nullable|exists:categories,id',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

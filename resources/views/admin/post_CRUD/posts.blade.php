@@ -45,6 +45,18 @@
                                                 No image
                                             </div>
                                         @endif
+                                        {{-- 
+                                        ----------------Via stoarge--------------:
+
+                                        @if ($post->thumbnail)
+                                            <img src="{{ asset('storage/' . $post->thumbnail) }}"
+                                                alt="{{ $post->title }}" class="w-full h-full object-cover">
+                                        @else
+                                            <div
+                                                class="w-full h-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs">
+                                                No image
+                                            </div>
+                                        @endif --}}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">{{ $post->category->name }}</td>

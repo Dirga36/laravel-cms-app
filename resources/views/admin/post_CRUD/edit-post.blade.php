@@ -46,7 +46,6 @@
                             @foreach ($categories as $category)
                                 <option value={{ $category->name }}>{{ $category->name }}</option>
                             @endforeach
-                            <!-- Tambahkan sesuai kebutuhan -->
                         </select>
                     </div>
 
@@ -62,7 +61,7 @@
                         <label for="editor"
                             class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Content</label>
                         <div id="editor">
-                            <input type="text" id="editor" name="content">
+                            <input type="text" name="content">
                             {{ $post->content }}
                             </input>
                         </div>
