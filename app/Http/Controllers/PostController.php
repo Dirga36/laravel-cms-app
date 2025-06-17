@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -34,7 +35,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('user_id', Auth::id())->get();
 
         return view('admin.post_CRUD.create-post', compact('categories'));
     }
