@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -12,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
+        $categories = Category::where('user_id', Auth::id())->latest()->get();
 
         return view('admin.category_CRUD.categories', compact('categories'));
     }
@@ -33,8 +34,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
         ]);
+
+        $validated['user_id'] = Auth::id();
 
         Category::create($validated);
 

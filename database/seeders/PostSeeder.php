@@ -17,7 +17,7 @@ class PostSeeder extends Seeder
         $users = User::all();
         $categories = Category::all();
 
-        // Pastikan ada user dan kategori dulu
+        // Setelah ada user dan kategori
         if ($users->count() === 0 || $categories->count() === 0) {
             $this->command->warn('User or Category not found. Seeding aborted.');
 

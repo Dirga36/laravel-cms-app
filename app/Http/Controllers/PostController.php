@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category', 'user')->latest()->get();
+        $posts = Post::with('category', 'user')->where('user_id', Auth::id())->latest()->get();
 
         return view('admin.post_CRUD.posts', compact('posts'));
     }
@@ -77,7 +77,7 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::with('category', 'user')->findOrFail($id);
-        $categories = Category::all();
+        $categories = Category::where('user_id', Auth::id())->get();
         return view('admin.post_CRUD.edit-post', compact('post', 'categories'));
     }
 
